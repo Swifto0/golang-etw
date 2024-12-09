@@ -28,6 +28,7 @@ type Provider struct {
 	MatchAnyKeyword uint64
 	MatchAllKeyword uint64
 	Filter          []uint16
+	EnableFlags     uint32
 }
 
 // IsZero returns true if the provider is empty

@@ -102,7 +102,7 @@ func (p *RealTimeSession) EnableProvider(prov Provider) (err error) {
 	params := EnableTraceParameters{
 		Version: 2,
 		// Does not seem to bring valuable information
-		//EnableProperty: EVENT_ENABLE_PROPERTY_PROCESS_START_KEY,
+		EnableProperty: prov.EnableFlags,
 	}
 
 	if len(prov.Filter) > 0 {

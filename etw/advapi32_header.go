@@ -715,6 +715,21 @@ type EventHeaderExtendedDataItem struct {
 	DataPtr        uintptr
 }
 
+//typedef struct _EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+//ULONG64 MatchId;
+//ULONG64 Address[ANYSIZE_ARRAY];
+//} EVENT_EXTENDED_ITEM_STACK_TRACE64, *PEVENT_EXTENDED_ITEM_STACK_TRACE64;
+
+type EventExtendedItemStackTrace64 struct {
+	MatchId uint64
+	Address []uint64
+}
+
+type EventExtendedItemStackTrace32 struct {
+	MatchId uint64
+	Address []uint
+}
+
 /*
 	typedef struct _EVENT_HEADER {
 	  USHORT           Size;
