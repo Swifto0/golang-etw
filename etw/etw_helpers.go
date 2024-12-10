@@ -565,9 +565,10 @@ func (e *EventRecordHelper) GetPropertyUint(name string) (u uint64, err error) {
 	return strconv.ParseUint(s, 0, 64)
 }
 
-func (e *EventRecordHelper) GetPropertyStack() (stack []uint64) {
+func (e *EventRecordHelper) GetPropertyStack() (stack []uint64, err error) {
 	record := e.EventRec
 	var i uint16
+	err = nil
 
 	if record.ExtendedDataCount != 0 {
 		for i = 0; i < record.ExtendedDataCount; i++ {
@@ -592,7 +593,7 @@ func (e *EventRecordHelper) GetPropertyStack() (stack []uint64) {
 			//}
 		}
 	}
-	return stack
+	return stack, err
 }
 
 func (e *EventRecordHelper) SetProperty(name, value string) {
